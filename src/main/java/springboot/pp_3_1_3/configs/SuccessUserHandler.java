@@ -1,4 +1,4 @@
-package springboot.pp_3_1_31.configs;
+package springboot.pp_3_1_3.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

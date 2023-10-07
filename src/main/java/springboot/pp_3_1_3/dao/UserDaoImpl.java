@@ -1,8 +1,8 @@
-package springboot.pp_3_1_31.dao;
+package springboot.pp_3_1_3.dao;
 
 
 import org.springframework.stereotype.Repository;
-import springboot.pp_3_1_31.entity.User;
+import springboot.pp_3_1_3.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

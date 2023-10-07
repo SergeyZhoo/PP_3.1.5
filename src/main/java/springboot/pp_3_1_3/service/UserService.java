@@ -1,7 +1,7 @@
-package springboot.pp_3_1_31.service;
+package springboot.pp_3_1_3.service;
 
 
-import springboot.pp_3_1_31.entity.User;
+import springboot.pp_3_1_3.entity.User;
 import java.util.List;
 
 public interface UserService {

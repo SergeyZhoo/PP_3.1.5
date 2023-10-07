@@ -1,4 +1,4 @@
-package springboot.pp_3_1_31.configs;
+package springboot.pp_3_1_3.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
