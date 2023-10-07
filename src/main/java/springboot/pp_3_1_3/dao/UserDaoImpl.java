@@ -1,10 +1,11 @@
-package springboot.pp_3_1_2.dao;
+package springboot.pp_3_1_3.dao;
 
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
-import springboot.pp_3_1_2.entity.User;
+import springboot.pp_3_1_3.entity.User;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository

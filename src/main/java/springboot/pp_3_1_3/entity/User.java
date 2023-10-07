@@ -1,7 +1,7 @@
-package springboot.pp_3_1_2.entity;
+package springboot.pp_3_1_3.entity;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
