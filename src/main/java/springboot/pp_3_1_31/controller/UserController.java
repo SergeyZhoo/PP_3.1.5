@@ -1,12 +1,12 @@
-package springboot.pp_3_1_3.controller;
+package springboot.pp_3_1_31.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import springboot.pp_3_1_3.entity.User;
-import springboot.pp_3_1_3.service.UserService;
+import springboot.pp_3_1_31.entity.User;
+import springboot.pp_3_1_31.service.UserService;
 
 @Controller
 @RequestMapping(value = "/user")

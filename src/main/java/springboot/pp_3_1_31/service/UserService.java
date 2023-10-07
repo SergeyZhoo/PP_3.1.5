@@ -1,12 +1,10 @@
-package springboot.pp_3_1_3.dao;
+package springboot.pp_3_1_31.service;
 
 
-
-import springboot.pp_3_1_3.entity.User;
-
+import springboot.pp_3_1_31.entity.User;
 import java.util.List;
 
-public interface UserDao {
+public interface UserService {
 
     List<User> getAllUsers();
 
@@ -14,7 +12,7 @@ public interface UserDao {
 
     void saveUser(User user);
 
-    void deleteUser(Long id);
-
     void updateUser(Long id, User updatedUser);
+
+    void deleteUser(Long id);
 }
