@@ -6,34 +6,33 @@
 </head>
 <body>
 
-<table>
+<table th:if="${user}">
     <tr>
+        <td>Id</td>
         <td>Name</td>
-        <td>LastName</td>
+        <td>Last Name</td>
+        <td>Username</td>
         <td>Age</td>
+        <td>Role</td>
     </tr>
 
-    <th:block th:each="user : ${users}">
-        <tr>
-            <td th:text="${user.getName()}">...</td>
-            <td th:text="${user.getLastName()}">...</td>
-            <td th:text="${user.getAge()}">...</td>
-            <td>
-                <a th:href="@{/user/{id}/edit(id=${user.getId()})}">Edit</a>
-            </td>
-            <td>
-                <form th:method="DELETE" th:action="@{'/user/' + ${user.getId()}}">
-                    <input type="submit" value="Delete"/>
-                </form>
-            </td>
-        </tr>
-    </th:block>
+    <tr>
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getUsername()}"></td>
+        <td th:text="${user.getAge()}"></td>
+        <td th:text="${user.getRoles()}"></td>
+
+    </tr>
 </table>
+
 
 <br>
 
-<input type="button" value="Add User"
-       onclick="window.location.href = 'user/add'"/>
+<form th:action="@{/logout}" th:method="POST" target="_self">
+    <button>Выйти из аккаунта</button>
+</form>
 
 </body>
 </html>

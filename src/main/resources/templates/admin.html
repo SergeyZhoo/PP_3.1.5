@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>LastName</td>
+        <td>Age</td>
+        <td>Username</td>
+        <td>Role</td>
+    </tr>
+
+    <th:block th:each="user : ${users}">
+        <tr>
+            <td th:text="${user.getId()}">...</td>
+            <td th:text="${user.getName()}">...</td>
+            <td th:text="${user.getLastName()}">...</td>
+            <td th:text="${user.getAge()}">...</td>
+            <td th:text="${user.getUsername()}">...</td>
+            <td th:text="${user.getRoles()}">...</td>
+            <td>
+                <a th:href="@{/admin/{id}/edit(id=${user.getId()})}">Edit</a>
+            </td>
+            <td>
+                <form th:method="DELETE" th:action="@{'/user/' + ${user.getId()}}">
+                    <input type="submit" value="Delete"/>
+                </form>
+            </td>
+            <td>
+                <a th:href="@{/admin/user/{id}(id=${user.getId()})}">View</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+
+<br>
+
+<input type="button" value="Add User"
+       onclick="window.location.href = 'admin/add'"/>
+
+<form th:action="@{/logout}" th:method="POST" target="_self">
+    <button>Выйти из аккаунта</button>
+</form>
+
+</body>
+</html>

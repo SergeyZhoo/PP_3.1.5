@@ -1,65 +1,31 @@
 package springboot.pp_3_1_3.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import springboot.pp_3_1_3.entity.User;
-import springboot.pp_3_1_3.service.UserService;
+import springboot.pp_3_1_3.service.UserServiceImpl;
+
+import java.security.Principal;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping("/user")
 public class UserController {
-	private final UserService userService;
+    private final UserServiceImpl userService;
 
-	@Autowired
-	public UserController(UserService userService) {
-		this.userService = userService;
+    @Autowired
+    public UserController(UserServiceImpl userService) {
+        this.userService = userService;
+    }
 
-	}
-
-	@GetMapping()
-	public String showAllUsers(Model model) {
-		model.addAttribute("users", userService.getAllUsers());
-		return "user";
-	}
-
-	@GetMapping("/add")
-	public String addUser(Model model) {
-		model.addAttribute("user", new User());
-		return "add";
-	}
-
-	@PostMapping()
-	public String saveUser(@ModelAttribute("user") User user) {
-		userService.saveUser(user);
-		return "redirect:/user";
-	}
-
-	@GetMapping("/{id}/edit")
-	public String edit(Model model, @PathVariable("id") Long id) {
-		model.addAttribute("user", userService.getUser(id));
-		return "edit";
-	}
-
-
-	@PatchMapping("/{id}")
-	public String update(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
-		userService.updateUser(id, user);
-		return "redirect:/user";
-	}
-
-//	@DeleteMapping("/{id}/delete")
-//	public String deletePerson(@PathVariable("id") Long id){
-//		userService.deleteUser(id);
-//		return "redirect:/user";
-//	}
-
-	@DeleteMapping("/{id}")
-	public String delete(@PathVariable("id") Long id) {
-		userService.deleteUser(id);
-		return "redirect:/user";
-	}
-
+    @GetMapping()
+    public String showUser(Model model, Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", userService.getUser(user.getId()));
+        System.out.println("Успешно: user id" + user.getClass());
+        model.addAttribute("tableTitle", "Страница пользователя: ");
+        return "user";
+    }
 }
